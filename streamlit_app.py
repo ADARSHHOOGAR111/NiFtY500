@@ -8,6 +8,7 @@ from sklearn.compose import ColumnTransformer
 from sklearn.preprocessing import OneHotEncoder
 from sklearn.pipeline import Pipeline
 from sklearn.metrics import r2_score,mean_absolute_error,mean_squared_error
+from sklearn.linear_model import LinearRegression
 step1=ColumnTransformer(transformers=[('col_tnf',OneHotEncoder(drop='first'),[])],remainder="passthrough")
 step2=LinearRegression()
 pipe=Pipeline([
