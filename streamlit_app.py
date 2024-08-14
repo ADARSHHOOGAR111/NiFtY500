@@ -1,9 +1,28 @@
+import pandas as pd
+df=pd.read_csv("https://drive.google.com/file/d/12ahukC1-3JF62H4RfKW8WOmvl0pSrB5y/view?usp=sharing")
+from sklearn.model_selection import train_test_split
+X=df.drop(columns='Close')
+y=df['Close']
+X_train,X_test,y_train,y_test=train_test_split(X,y,test_size=0.15,random_state=42)
+from sklearn.compose import ColumnTransformer
+from sklearn.preprocessing import OneHotEncoder
+from sklearn.pipeline import Pipeline
+from sklearn.metrics import r2_score,mean_absolute_error,mean_squared_error
+step1=ColumnTransformer(transformers=[('col_tnf',OneHotEncoder(drop='first'),[])],remainder="passthrough")
+step2=LinearRegression()
+pipe=Pipeline([
+    ('step1',step1),
+    ('step2',step2)
+])
+pipe.fit(X_train,y_train)
 
+y_pred=pipe.predict(X_test)
+r2_score(y_test,y_pred)
 import streamlit as st
 import pickle5 as pickle
 import numpy as np
-df=pickle.load(open('df.pkl','rb'))
-pipe=pickle.load(open('pipe.pkl','rb'))
+#df=pickle.load(open('df.pkl','rb'))
+#pipe=pickle.load(open('pipe.pkl','rb'))
 
 st.header("TNIFTY %_")
 
