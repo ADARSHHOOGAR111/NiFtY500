@@ -1,4 +1,3 @@
 streamlit
-pickle5
- --upgrade pip
+scikit-learn
 
