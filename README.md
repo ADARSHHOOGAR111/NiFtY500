@@ -10,6 +10,8 @@ A simple Streamlit app template for you to modify!
 
    ```
    $ pip install -r requirements.txt
+   $ pip install scikit-learn
+   $ pip install pickle
    ```
 
 2. Run the app
