@@ -1,5 +1,5 @@
 import pandas as pd
-df=pd.read_csv("^NSEI (1).csv")
+df=pd.read_csv("processed_data.csv")
 from sklearn.model_selection import train_test_split
 X=df.drop(columns='Close')
 y=df['Close']
